@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 class Note(BaseModel):
     id: int
@@ -10,13 +10,12 @@ class NoteCreate(BaseModel):
     title: str
     content: str
 
-class User(BaseModel):
-    id: int
-    username: str
-    email: str
-
 class UserCreate(BaseModel):
     username: str
-    email: str
+    email: EmailStr
     password: str
     password2: str
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
